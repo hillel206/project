@@ -1,0 +1,52 @@
+.main {
+    height: 100%;
+    text-align: center;
+}
+.center {
+    width: 50%;
+    background-color: brown;
+    margin-left: 25%;
+    margin-top: 1ch;
+    border-radius: 23px;
+}
+.topbar{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* border-left: solid 1px rgb(24, 133, 131); */
+    margin-left: 15%;
+}
+.game {
+    height: 400px;
+    background-color: rgb(126, 245, 89);
+    display: grid;
+    grid-template-columns: repeat(20, auto);
+}
+.item {
+    height: 15px;
+    border-left: solid .5px rgba(0, 0, 255, 0.269);
+    border-top: solid .5px rgba(0, 0, 255, 0.269);
+}
+.buttonPlay {
+    background: rgb(50, 185, 154);
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 7px;
+    color: rgb(41, 44, 240);
+    font-size: 23px;
+}
+.snake {
+    background-color: green;
+}
+.food {
+    background-color: rgb(101, 45, 150);
+}
+.dataVue{
+    background: rgb(96, 116, 232);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: rgb(234, 255, 0);
+    font-size: 27px;
+    padding: 10px;
+}
