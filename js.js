@@ -28,6 +28,7 @@ function login() {
     if (username && password) {
         const user = JSON.parse(localStorage.getItem(username));
         if (user && user.password === password) {
+           localStorage.setItem("username",username)//שמירת שם המשתמש לוקל סטורג
             alert("כניסה בוצעה בהצלחה! הציון הגבוה שלך הוא: " + user.highScore);
             window.location.href = 'hillel1.html'; // העברה לדף המשחק
         } else {

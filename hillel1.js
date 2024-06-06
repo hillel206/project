@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let direction;
     let score;
     let foodIndex;
+    let timer
     function startGame() {
         game.innerHTML = '';
         createGrid();
@@ -28,6 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
         drawSnake();
         document.getElementById('score').innerHTML = score;
         placeFood();  
+        let time = 0
+
+
+        timer =  setInterval(() => {
+            time = time + 1
+            document.getElementById('time').innerHTML = time
+            
+        }, 1000);
+        
         if (gameInterval) clearInterval(gameInterval);
         gameInterval = setInterval(moveSnake, 120);
     }
@@ -51,7 +61,21 @@ document.addEventListener("DOMContentLoaded", () => {
             cells[newHead].classList.contains('snake')
         ) {
             alert(`Game over! Your score is ${score}`);
+            let username=localStorage.getItem("username")
+            let user=localStorage.getItem(username)
+            user=JSON.parse(user)
+            let highScore=user.highScore;
+            console.log(user)
+            if(!highScore ||highScore < score ){
+              
+                user.highScore = score;
+                user = JSON.stringify(user)
+                localStorage.setItem(username,user)
+                localStorage.getItem(username)
+            }
+           
             clearInterval(gameInterval);
+            clearInterval(timer)
             document.getElementById('score').innerHTML = score
             return;
         }
@@ -73,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cells[foodIndex].classList.add('food');
     }
     function control(e) {
+        console.log(e)
         if (e.keyCode === 39 && direction !== -1) {
             direction = 1; // Right arrow
         } else if (e.keyCode === 37 && direction !== 1) {
@@ -83,7 +108,21 @@ document.addEventListener("DOMContentLoaded", () => {
             direction = 20; // Down arrow
         }
     }
+    
     document.addEventListener('keydown', control);
+
+    document.getElementById('controlD').onclick = function(){
+        control({keyCode:40})
+    }
+    document.getElementById('controlR').onclick = function(){
+        control({keyCode:39})
+    }
+    document.getElementById('controlL').onclick = function(){
+        control({keyCode:37})
+    }
+    document.getElementById('controlU').onclick = function(){
+        control({keyCode:38})
+    }
     createGrid();
 });
 

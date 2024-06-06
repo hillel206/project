@@ -9,6 +9,10 @@
     margin-top: 1ch;
     border-radius: 23px;
 }
+
+
+
+
 .topbar{
     display: grid;
     grid-template-columns: auto auto auto;
@@ -17,12 +21,12 @@
 }
 .game {
     height: 400px;
+    
     background-color: rgb(126, 245, 89);
     display: grid;
     grid-template-columns: repeat(20, auto);
 }
 .item {
-    height: 15px;
     border-left: solid .5px rgba(0, 0, 255, 0.269);
     border-top: solid .5px rgba(0, 0, 255, 0.269);
 }
@@ -37,9 +41,11 @@
 }
 .snake {
     background-color: green;
+
 }
 .food {
     background-color: rgb(101, 45, 150);
+    border-radius: 20px;
 }
 .dataVue{
     background: rgb(96, 116, 232);
@@ -50,3 +56,56 @@
     font-size: 27px;
     padding: 10px;
 }
+
+
+.control{
+    display: none;
+}
+@media only screen and (max-width:600px) {
+    .center{
+        margin: 0px;
+        width:100%;
+    }
+
+    body{
+
+
+        margin: 0px;
+    }
+
+    .control{
+        display: block;
+        width: 100%;
+        background-color: rgb(169, 169, 169);
+        height: 50ch;
+    }
+    .controlU{
+        height: 17ch;
+        width: 100%;
+    }
+    .controlL{
+        width: 49%;
+        height: 17ch;
+
+    }
+
+    .controlR{
+        width: 49%;
+        height: 17ch;
+
+    }
+    .controlD{
+        width: 100%;
+        height: 17ch;
+        padding: 0px;
+
+    }
+    .control button{
+        background-color: rgb(45, 45, 52);
+        border: solid 1px red;
+        border-radius: 50px;
+    }
+
+    
+}
+
