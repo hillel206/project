@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>כניסה ורישום</title>
+    <!-- <link rel="stylesheet" href="./normalize.css"> -->
     <link rel="stylesheet" href="./index.css">  
     <script src="./js.js"></script>
 </head>
@@ -10,11 +11,12 @@
         <div id="loginForm" class="form-container active">
             <h2>כניסה</h2>
             <form onsubmit="login(); return false;">
-                <label for="loginUsername">שם משתמש:</label>
+                <br><label for="loginUsername">שם משתמש:</label>
+                <br>
                 <input type="text" id="loginUsername" name="username" required>
-                <label for="loginPassword">סיסמא:</label>
-                <input type="password" id="loginPassword" name="password" required>
-                <input type="submit" value="כניסה">
+                <br> <label for="loginPassword">סיסמא:</label>
+                <br><input type="password" id="loginPassword" name="password" required>
+                <br><input type="submit" value="כניסה">
             </form>
             <button class="toggle-button" onclick="showForm('registerForm')">רישום</button>
         </div>
@@ -22,12 +24,12 @@
         <div id="registerForm" class="form-container">
             <h2>רישום</h2>
             <form onsubmit="register(); return false;">
-                <label for="registerUsername">שם משתמש:</label>
-                <input type="text" id="registerUsername" name="username" required>
-                <label for="registerPassword">סיסמא:</label>
-                <input type="password" id="registerPassword" name="password" required>
-                <input type="submit" value="רישום">
-            </form>
+                <br> <label for="registerUsername">שם משתמש:</label>
+                <br> <input type="text" id="registerUsername" name="username" required>
+                <br>  <label for="registerPassword">סיסמא:</label>
+                <br> <input type="password" id="registerPassword" name="password" required>
+                <br><input type="submit" value="רישום">
+                 </form>
             <button class="toggle-button" onclick="showForm('loginForm')">כניסה</button>
         </div>
     </div>
