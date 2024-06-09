@@ -10,6 +10,10 @@ function register() {
     const highScore = 0;
 
     if (username && password) {
+        if (password.length < 6) {
+            alert("הסיסמה חייבת להיות באורך של לפחות 6 תווים.");
+            return;
+        }
         const user = {
             password: password,
             highScore: highScore
@@ -21,14 +25,19 @@ function register() {
     }
 }
 
+
 function login() {
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
 
     if (username && password) {
+        if (password.length < 6) {
+            alert("הסיסמה חייבת להיות באורך של לפחות 6 תווים.");
+            return;
+        }
         const user = JSON.parse(localStorage.getItem(username));
         if (user && user.password === password) {
-           localStorage.setItem("username",username)//שמירת שם המשתמש לוקל סטורג
+            localStorage.setItem("username", username); // שמירת שם המשתמש ב-localStorage
             alert("כניסה בוצעה בהצלחה! הציון הגבוה שלך הוא: " + user.highScore);
             window.location.href = 'hillel1.html'; // העברה לדף המשחק
         } else {
