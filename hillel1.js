@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
         
         if (gameInterval) clearInterval(gameInterval);
-        gameInterval = setInterval(moveSnake, 120);
+        gameInterval = setInterval(moveSnake, 150);
     }
     function drawSnake() {
         snake.forEach(index => cells[index].classList.add('snake'));
