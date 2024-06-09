@@ -29,6 +29,7 @@
 .item {
     border-left: solid .5px rgba(0, 0, 255, 0.269);
     border-top: solid .5px rgba(0, 0, 255, 0.269);
+    animation: swirl-in-fwd 0.6s ;
 }
 .buttonPlay {
     background: rgb(50, 185, 154);
@@ -77,35 +78,48 @@
         display: block;
         width: 100%;
         background-color: rgb(169, 169, 169);
-        height: 50ch;
+       
     }
     .controlU{
-        height: 17ch;
-        width: 100%;
+      
+        width: 50%;
     }
     .controlL{
         width: 49%;
-        height: 17ch;
+       
 
     }
 
     .controlR{
         width: 49%;
-        height: 17ch;
+      
 
     }
     .controlD{
-        width: 100%;
-        height: 17ch;
+        width: 50%;
+      
         padding: 0px;
 
     }
     .control button{
-        background-color: rgb(45, 45, 52);
+        background-color: rgb(0 166 237);
         border: solid 1px red;
         border-radius: 50px;
+        height: 100px;
+        font-size: 50px;
+        color:white
     }
 
     
 }
 
+@keyframes swirl-in-fwd {
+    0% {
+      transform: rotate(-540deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(0) scale(1);
+      opacity: 1;
+}
+}
