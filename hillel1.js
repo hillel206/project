@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const cell = document.createElement('div'); //יצירת דיב עבור כל תא
             cell.id = 'e' + i; //   לכל יחידה id   
             cell.className = 'item'; // לכל תא class 
-            game.appendChild(cell); // 
+            game.appendChild(cell); // מוסיפה את האלמנט שנוצר אל  game
         }
     }
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let foodIndex; // משתנה לאחסון מיקום האוכל
 
     function startGame() {
-        game.innerHTML = ''; // איפוס תוכן האלמנט 'game'
+        game.innerHTML = ''; // איפוס תוכן האלמנט game
         createGrid(); // יצירת הגריד
         cells = document.querySelectorAll('.item'); // בחירת כל התאים שנוצרו
         snake = [42, 41, 40]; // מיקום התחלתי של הנחש
@@ -30,13 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
         score = 0; // איפוס הציון
         foodIndex = 0; // איפוס מיקום האוכל
         drawSnake(); // ציור הנחש על הגריד
-        document.getElementById('score').innerHTML = score; //
+        document.getElementById('score').innerHTML = score; // מעדכן את הציון המוצג על המסך
         placeFood(); // מיקום האוכל על הגריד
         let time = 0; // משתנה לאחסון הזמן שחלף
 
         // איפוס הטיימרים הקודמים אם קיימים
-        if (timer) clearInterval(timer); // איפוס טיימר הזמן
-        if (gameInterval) clearInterval(gameInterval); // איפוס טיימר המשחק
+        if (timer) clearInterval(timer); // איפוס טיימר זמן המשחק
+        if (gameInterval) clearInterval(gameInterval); // איפוס טיימר תנועת הנחש
 
         timer = setInterval(() => { // הגדרת טיימר זמן
             time += 1; // הגדלת הזמן שחלף
@@ -47,18 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function drawSnake() {
-        snake.forEach(index => cells[index].classList.add('snake')); //  
+        snake.forEach(index => cells[index].classList.add('snake')); //  ציור הנחש על המשבצות הרלוונטיות
     }
-
-    function removeSnake() {
-        snake.forEach(index => cells[index].classList.remove('snake')); //
-    }
-
-    function moveSnake() {
-        const head = snake[0]; // ראש הנחש
-        const tail = snake.pop(); // זנב הנחש
-        cells[tail].classList.remove('snake'); // 
-        const newHead = head + direction; // חישוב מיקום ראש הנחש החדש
+    
+  function moveSnake() {
+    const head = snake[0]; // האיבר הראשון במערך snake מייצג את הראש של הנחש
+    const tail = snake.pop(); //  מייצג את הזנב של הנחש,האיבר האחרון במערך בשביל להסיר מסנייק
+    cells[tail].classList.remove('snake'); // מוריד את סנייק מהתא שהיה  הזנב של הנחש  
+    const newHead = head + direction; // מחשב את המיקום החדש של ראש הנחש בהתאם לכיוון הנוכחי שלו
 
         // בדיקת התנגשות בקירות או בנחש עצמו
         if (
